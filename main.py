@@ -40,7 +40,7 @@ KV = """
     color: 0.5, 0.85, 1, 1
 
 <EqButton@CalcButton>:
-    bg_color: 0
+    bg_color: 0, 0, 0, 0
     color: 0.14, 0.08, 0, 1
     canvas.before:
         Color:
