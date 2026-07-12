@@ -1,0 +1,26 @@
+from kivy.app import App
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.button import Button
+from kivy.uix.textinput import TextInput
+
+class CalculatorApp(App):
+    def build(self):
+        self.operators = ["/", "*", "+", "-"]
+        self.last_was_operator = None
+        self.last_button = None
+        
+        # Главный вертикальный контейнер
+        main_layout = BoxLayout(orientation="vertical", padding=10, spacing=10)
+        
+        # Поле вывода результата
+        self.solution = TextInput(
+            multiline=False, readonly=True, halign="right", font_size=55,
+            background_color=(0.1, 0.1, 0.1, 1), foreground_color=(1, 1, 1, 1)
+        )
+        main_layout.add_widget(self.solution)
+        
+        # Сетка кнопок
+        buttons = [
+            ["7", "8", "9", "/"],
+            ["4", "5", "6", "*"],
+            ["1", "2", "3", "-"]
