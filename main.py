@@ -32,7 +32,7 @@ KV = """
         RoundedRectangle:
             pos: self.pos
             size: self.size
-            radius: [16]
+            radius: [22]
     bg_color: 0.15, 0.18, 0.28, 1
 
 <OpButton@CalcButton>:
@@ -48,7 +48,7 @@ KV = """
         RoundedRectangle:
             pos: self.pos
             size: self.size
-            radius: [16]
+            radius: [22]
 
 <FuncButton@CalcButton>:
     bg_color: 0.15, 0.18, 0.28, 1
@@ -57,47 +57,6 @@ KV = """
 
 <RootWidget>:
     orientation: "vertical"
-
-    FloatLayout:
-        size_hint_y: None
-        height: dp(170)
-        canvas.before:
-            Color:
-                rgba: 0.08, 0.1, 0.24, 1
-            RoundedRectangle:
-                pos: self.pos
-                size: self.size
-                radius: [0, 0, 0, 0]
-
-        SnowWidget:
-            id: snow
-            size_hint: 1, 1
-            pos: self.parent.pos if self.parent else (0, 0)
-
-        BoxLayout:
-            orientation: "vertical"
-            padding: [dp(20), dp(14)]
-            size_hint: 1, 1
-            Widget:
-            Label:
-                text: root.expr_text
-                font_size: "16sp"
-                color: 0.5, 0.58, 0.72, 1
-                halign: "right"
-                valign: "bottom"
-                text_size: self.size
-                size_hint_y: None
-                height: dp(20)
-            Label:
-                text: root.result_text
-                font_size: "42sp"
-                bold: True
-                color: 0.93, 0.96, 1, 1
-                halign: "right"
-                valign: "bottom"
-                text_size: self.size
-                size_hint_y: None
-                height: dp(56)
 
     GridLayout:
         cols: 4
@@ -165,6 +124,48 @@ KV = """
         EqButton:
             text: "="
             on_release: root.evaluate()
+
+    FloatLayout:
+        size_hint_y: None
+        height: dp(170)
+        canvas.before:
+            Color:
+                rgba: 0.08, 0.1, 0.24, 1
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [0, 0, 0, 0]
+
+        SnowWidget:
+            id: snow
+            size_hint: 1, 1
+            pos: self.parent.pos if self.parent else (0, 0)
+
+        BoxLayout:
+            orientation: "vertical"
+            padding: [dp(20), dp(14)]
+            size_hint: 1, 1
+            pos: self.parent.pos if self.parent else (0, 0)
+            Widget:
+            Label:
+                text: root.expr_text
+                font_size: "16sp"
+                color: 0.5, 0.58, 0.72, 1
+                halign: "right"
+                valign: "bottom"
+                text_size: self.size
+                size_hint_y: None
+                height: dp(20)
+            Label:
+                text: root.result_text
+                font_size: "42sp"
+                bold: True
+                color: 0.93, 0.96, 1, 1
+                halign: "right"
+                valign: "bottom"
+                text_size: self.size
+                size_hint_y: None
+                height: dp(56)
 """
 
 
